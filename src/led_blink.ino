@@ -50,12 +50,12 @@ void setup() {
 }
 
 void loop() {
-  display.clearDisplay(); // CORREGIDO: Limpia antes de dibujar
+  display.clearDisplay();
   digitalWrite(ledSI, ledEncendido);
   digitalWrite(ledSD, ledEncendido);
-  imprimirFlechaCentrada(ARRIBA, 2); // CORREGIDO: Llamada limpia y con punto y coma
-  display.display(); // CORREGIDO: Envía el dibujo a la pantalla
-  delay(400);
+  imprimirFlechaCentrada(ARRIBA, 2);
+  display.display();
+  delay(2000);
 
   display.clearDisplay();
   digitalWrite(ledSI, ledApagado);
@@ -64,7 +64,7 @@ void loop() {
   digitalWrite(ledII, ledEncendido);
   imprimirFlechaCentrada(ABAJO, 2); 
   display.display();
-  delay(400);
+  delay(2000);
 
   display.clearDisplay();
   digitalWrite(ledID, ledApagado);
@@ -73,7 +73,7 @@ void loop() {
   digitalWrite(ledID, ledEncendido);
   imprimirFlechaCentrada(DERECHA, 2); 
   display.display();
-  delay(400);
+  delay(2000);
 
   display.clearDisplay();
   digitalWrite(ledSD, ledApagado);
@@ -82,7 +82,7 @@ void loop() {
   digitalWrite(ledII, ledEncendido);
   imprimirFlechaCentrada(IZQUIERDA, 2); 
   display.display();
-  delay(400);
+  delay(2000);
 
   digitalWrite(ledSI, ledApagado);
   digitalWrite(ledII, ledApagado);
@@ -127,7 +127,7 @@ inline void testI2CDevice() {
 
 inline void initDisplay() {
   if (!display.begin(SSD1306_SWITCHCAPVCC, OLED_I2C_ADDR)) {
-    Serial.println("[DISPLAY] Error al inicializar SSD1306"); // Cambiado a println para mejor lectura
+    Serial.println("[DISPLAY] Error al inicializar SSD1306");
     while(1);
   } else {
     Serial.println("[DISPLAY] SSD1306 inicializado 128x64 a 400 kHz");
